@@ -13,9 +13,11 @@ class InvoiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return InvoiceResource::collection(Invoice::with('user')->get());
+        // return InvoiceResource::collection(Invoice::with('user')->get());
+        return (new Invoice())->filter($request);
+
     }
 
     /**
